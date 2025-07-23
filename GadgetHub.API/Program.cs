@@ -1,4 +1,5 @@
 using GadgetHub.API.Data;
+using GadgetHub.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<GadgetHubDbContext>();
+
+    if (!context.Distributors.Any())
+    {
+        context.Distributors.AddRange(
+            new Distributor { Name = "TechWorld", Username = "techworld", Password = "1234" },
+            new Distributor { Name = "ElectroCom", Username = "electrocom", Password = "1234" },
+            new Distributor { Name = "Gadget Central", Username = "gadgetcentral", Password = "1234" }
+        );
+        context.SaveChanges();
+    }
+}
+
 
 app.UseHttpsRedirection();
 
