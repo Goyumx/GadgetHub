@@ -40,7 +40,7 @@ namespace GadgetHub.Web
 
                         var json = JsonConvert.SerializeObject(singleRequest);
                         var content = new StringContent(json, Encoding.UTF8, "application/json");
-
+                
                         var response = await client.PostAsync(apiUrl, content);
                         if (response.IsSuccessStatusCode)
                         {
@@ -61,6 +61,8 @@ namespace GadgetHub.Web
                             }
                         }
                     }
+
+                    Session["Quotations"] = allQuotations;
 
                     gvQuotations.DataSource = allQuotations;
                     gvQuotations.DataBind();
