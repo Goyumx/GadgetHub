@@ -1,5 +1,8 @@
-﻿namespace GadgetHub.Web.Models
+﻿using System;
+
+namespace GadgetHub.Web.Models
 {
+    [Serializable]
     public class CartItem
     {
         public int ProductId { get; set; }

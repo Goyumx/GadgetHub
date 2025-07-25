@@ -24,13 +24,13 @@
     <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
         <div class="carousel-inner rounded shadow">
             <div class="carousel-item active">
-                <img src="https://via.placeholder.com/1000x300?text=Welcome+to+Gadget+Hub" class="d-block w-100" alt="Banner 1" />
+                <img src="https://via.placeholder.com/1000x300?text=Welcome+to+Gadget+Hub" class="d-block w-100" />
             </div>
             <div class="carousel-item">
-                <img src="https://via.placeholder.com/1000x300?text=Latest+Phones" class="d-block w-100" alt="Banner 2" />
+                <img src="https://via.placeholder.com/1000x300?text=Latest+Phones" class="d-block w-100" />
             </div>
             <div class="carousel-item">
-                <img src="https://via.placeholder.com/1000x300?text=Top+Deals+on+Laptops" class="d-block w-100" alt="Banner 3" />
+                <img src="https://via.placeholder.com/1000x300?text=Top+Deals+on+Laptops" class="d-block w-100" />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -41,31 +41,29 @@
         </button>
     </div>
 
-<!-- 🧱 Product Grid -->
-<div class="row row-cols-1 row-cols-md-4 g-4">
-    <asp:Repeater ID="rptProducts" runat="server">
-        <ItemTemplate>
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src='<%# !string.IsNullOrEmpty(Eval("ImageUrl") as string) ? Eval("ImageUrl") : "https://via.placeholder.com/200x150" %>' class="card-img-top" />
-                    <div class="card-body">
-                        <h5 class="card-title"><%# Eval("Name") %></h5>
-                        <p class="card-text">Category: <%# Eval("Category") %></p>
-                        <p class="card-text"><%# Eval("Description") %></p>
-                        <button class="btn btn-outline-success w-100">Add to Cart</button>
+    <!-- 🧱 Product Grid -->
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="rptProducts_ItemCommand">
+            <ItemTemplate>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src='<%# !string.IsNullOrEmpty(Eval("ImageUrl") as string) ? Eval("ImageUrl") : "https://via.placeholder.com/200x150" %>' class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"><%# Eval("Name") %></h5>
+                            <p class="card-text">Category: <%# Eval("Category") %></p>
+                            <p class="card-text"><%# Eval("Description") %></p>
+
+                            <asp:Button ID="btnAddToCart" runat="server"
+                                Text="Add to Cart"
+                                CssClass="btn btn-outline-success w-100"
+                                CommandName="AddToCart"
+                                CommandArgument='<%# Eval("Id") %>'
+                                UseSubmitBehavior="false" />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-</div>
-
-
-    <!-- 📄 Pagination -->
-    <div class="mt-4 text-center">
-        <button class="btn btn-outline-secondary">Previous</button>
-        <button class="btn btn-outline-secondary">Next</button>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 
 </asp:Content>
-

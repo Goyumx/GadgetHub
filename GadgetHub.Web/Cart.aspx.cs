@@ -17,6 +17,7 @@ namespace GadgetHub.Web
 
         private void LoadCart()
         {
+
             var cart = Session["Cart"] as List<CartItem> ?? new List<CartItem>();
             gvCart.DataSource = cart;
             gvCart.DataBind();
@@ -41,3 +42,4 @@ namespace GadgetHub.Web
         }
     }
 }
+
