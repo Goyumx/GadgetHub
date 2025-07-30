@@ -9,6 +9,14 @@ namespace GadgetHub.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check if user is logged in
+            var customer = Session["Customer"] as AuthResponseDto;
+            if (customer == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 LoadCart();
@@ -39,6 +47,11 @@ namespace GadgetHub.Web
                     LoadCart();
                 }
             }
+        }
+
+        protected void btnRequestQuotations_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Quotation.aspx");
         }
     }
 }

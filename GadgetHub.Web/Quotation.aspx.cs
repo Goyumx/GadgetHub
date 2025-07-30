@@ -12,6 +12,21 @@ namespace GadgetHub.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check if user is logged in
+            var customer = Session["Customer"] as AuthResponseDto;
+            if (customer == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
+            // Check if cart has items
+            var cart = Session["Cart"] as List<CartItem>;
+            if (cart == null || cart.Count == 0)
+            {
+                Response.Redirect("Default.aspx");
+                return;
+            }
         }
 
         protected async void btnRequest_Click(object sender, EventArgs e)
@@ -67,6 +82,12 @@ namespace GadgetHub.Web
                     gvQuotations.DataSource = allQuotations;
                     gvQuotations.DataBind();
                     lblMessage.Text = "Quotations retrieved successfully ✅";
+                    
+                    // Show the continue button when quotations are loaded
+                    if (btnContinueToDistributor != null)
+                    {
+                        btnContinueToDistributor.Visible = true;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -75,5 +96,9 @@ namespace GadgetHub.Web
             }
         }
 
+        protected void btnContinueToDistributor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SelectDistributor.aspx");
+        }
     }
 }

@@ -15,5 +15,7 @@
         </Columns>
     </asp:GridView>
 
+    <asp:Button ID="btnContinueToDistributor" runat="server" Text="Continue to Select Distributor" CssClass="btn btn-success mt-3" OnClick="btnContinueToDistributor_Click" Visible="false" />
+
     <asp:Label ID="lblMessage" runat="server" CssClass="text-success mt-2" />
 </asp:Content>

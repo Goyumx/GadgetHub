@@ -10,6 +10,22 @@ namespace GadgetHub.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check if user is logged in
+            var customer = Session["Customer"] as AuthResponseDto;
+            if (customer == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
+            // Check if quotations exist
+            var quotations = Session["Quotations"] as List<QuotationResponseDto>;
+            if (quotations == null || quotations.Count == 0)
+            {
+                Response.Redirect("Quotation.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 LoadQuotationOptions();

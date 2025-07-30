@@ -2,6 +2,7 @@
 
 namespace GadgetHub.Web.Models
 {
+    [Serializable]
     public class SelectedDistributorDto
     {
         public string ProductName { get; set; }

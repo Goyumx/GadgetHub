@@ -35,12 +35,16 @@ namespace GadgetHub.Web
                         var result = await response.Content.ReadAsStringAsync();
                         var user = JsonConvert.DeserializeObject<LoginResponseDto>(result);
 
-                        // Now safe to use
-                        Session["CustomerId"] = user.CustomerId;
-                        Session["Username"] = user.Username;
+                        Session["Customer"] = new AuthResponseDto
+                        {
+                            CustomerId = user.CustomerId,
+                            Username = user.Username,
+                            Name = user.Name
+                        };
 
                         Response.Redirect("Default.aspx");
                     }
+
                     else
                     {
                         lblMessage.Text = "Invalid username or password.";

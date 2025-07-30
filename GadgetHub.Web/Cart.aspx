@@ -18,5 +18,9 @@
     </asp:GridView>
 
     <asp:Label ID="lblTotal" runat="server" CssClass="fw-bold fs-5"></asp:Label>
+
+    <div class="mt-3">
+        <asp:Button ID="btnRequestQuotations" runat="server" Text="Request Quotations" CssClass="btn btn-primary" OnClick="btnRequestQuotations_Click" />
+    </div>
 </asp:Content>
 
