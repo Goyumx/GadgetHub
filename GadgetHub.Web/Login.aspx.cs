@@ -51,7 +51,7 @@ namespace GadgetHub.Web
                     }
                 }
                 catch (Exception ex)
-                {
+                { 
                     lblMessage.Text = "Login failed: " + ex.Message;
                 }
             }
