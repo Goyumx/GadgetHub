@@ -159,6 +159,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DistributorDashboard.aspx" />
     <Content Include="DistributorLogin.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -279,6 +280,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DistributorDashboard.aspx.cs">
+      <DependentUpon>DistributorDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DistributorDashboard.aspx.designer.cs">
+      <DependentUpon>DistributorDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DistributorLogin.aspx.cs">
       <DependentUpon>DistributorLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,9 +310,12 @@
     <Compile Include="Models\Distributor.cs" />
     <Compile Include="Models\DistributorLoginResponseDto.cs" />
     <Compile Include="Models\LoginResponseDto.cs" />
+    <Compile Include="Models\OrderDto.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDto.cs" />
+    <Compile Include="Models\QuotationDisplayDto.cs" />
     <Compile Include="Models\QuotationResponseDto.cs" />
+    <Compile Include="Models\QuotationUpdateDto.cs" />
     <Compile Include="Models\SelectedDistributorDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quotation.aspx.cs">
