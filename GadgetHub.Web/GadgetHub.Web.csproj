@@ -166,6 +166,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Quotation.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="RespondQuotation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -332,6 +333,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RespondQuotation.aspx.cs">
+      <DependentUpon>RespondQuotation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RespondQuotation.aspx.designer.cs">
+      <DependentUpon>RespondQuotation.aspx</DependentUpon>
     </Compile>
     <Compile Include="SelectDistributor.aspx.cs">
       <DependentUpon>SelectDistributor.aspx</DependentUpon>
