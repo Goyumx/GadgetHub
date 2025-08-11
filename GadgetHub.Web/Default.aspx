@@ -23,16 +23,6 @@
     <!-- 🖼 Bootstrap Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
         <div class="carousel-inner rounded shadow">
-            <div class="carousel-item active">
-                <img src="https://via.placeholder.com/1000x300?text=Welcome+to+Gadget+Hub" class="d-block w-100" />
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/1000x300?text=Latest+Phones" class="d-block w-100" />
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/1000x300?text=Top+Deals+on+Laptops" class="d-block w-100" />
-            </div>
-        </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
@@ -47,7 +37,6 @@
             <ItemTemplate>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <img src='<%# !string.IsNullOrEmpty(Eval("ImageUrl") as string) ? Eval("ImageUrl") : "https://via.placeholder.com/200x150" %>' class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title"><%# Eval("Name") %></h5>
                             <p class="card-text">Category: <%# Eval("Category") %></p>

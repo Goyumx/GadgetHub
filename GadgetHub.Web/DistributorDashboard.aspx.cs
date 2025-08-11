@@ -16,7 +16,7 @@ namespace GadgetHub.Web
             // Check if distributor is logged in
             if (Session["DistributorId"] == null || Session["DistributorName"] == null)
             {
-                Response.Redirect("DistributorLogin.aspx");
+                
                 return;
             }
 

@@ -40,7 +40,7 @@ namespace GadgetHub.Web
             var selections = Session["Selections"] as List<SelectedDistributorDto>;
             var customer = Session["Customer"] as AuthResponseDto;
 
-            // Debug information
+           
             if (selections == null)
             {
                 lblMessage.Text = "❌ Selections session is null. Please go back and select distributors.";
@@ -63,7 +63,7 @@ namespace GadgetHub.Web
             };
 
             var json = JsonConvert.SerializeObject(orderRequest);
-            var apiUrl = "https://localhost:7165/api/orders"; // Change if needed
+            var apiUrl = "https://localhost:7165/api/orders"; 
 
             using (HttpClient client = new HttpClient())
             {
